@@ -1,0 +1,3 @@
+Das dockerfile erstellt ein Image um die app.sh auszuführen.
+Die Pipeline dient dazu automatisch bei jeder Code änderung zu prüfen ob das DockerImage fehlerfrei gebaut werden kann.
+Das größte Problem war die Syntax korrekt zu schreiben.
