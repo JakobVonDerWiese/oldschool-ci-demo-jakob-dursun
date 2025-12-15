@@ -1,0 +1,32 @@
+name: Build and Test Docker
+
+on: push
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          IMAGE_NAME=oldschool-demo-image-MaxM
+          docker build -t $IMAGE_NAME .
+
+      - name: Container starten & testen
+        run: |
+          IMAGE_NAME=oldschool-demo-image-MaxM
+          output=$(docker run $IMAGE_NAME)
+          echo "Container output: $output"
+          EXPECTED="OldSchool GmbH – automatischer Build erfolgreich! (Max M.)"
+          if [ "$output" != "$EXPECTED" ]; then
+            echo " Test fehlgeschlagen!"
+            exit 1
+          else
+            echo "✅ Test bestanden!"
+          fi
