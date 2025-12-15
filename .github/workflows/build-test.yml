@@ -23,7 +23,7 @@ jobs:
           IMAGE_NAME=oldschool-ci-demo-jakob-dursun
           output=$(docker run $IMAGE_NAME)
           echo "Container output: $output"
-          EXPECTED="OldSchool GmbH – automatischer Build erfolgreich! (Max M.)"
+          EXPECTED="OldSchool GmbH – automatischer Build erfolgreich!"
           if [ "$output" != "$EXPECTED" ]; then
             echo " Test fehlgeschlagen!"
             exit 1
