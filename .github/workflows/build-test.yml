@@ -15,7 +15,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=oldschool-demo-image-MaxM
+          IMAGE_NAME=oldschool-ci-demo-jakob-dursun
           docker build -t $IMAGE_NAME .
 
       - name: Container starten & testen
